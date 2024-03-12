@@ -1,4 +1,4 @@
-# 資料結構導論 Introduction to Data Structure (2024 Spring)
+# NTHU 資料結構導論 IDS (2024 Spring)
 
 This table outlines the course schedule for the semester :
 
