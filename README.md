@@ -42,7 +42,7 @@ This table outlines the course schedule for the semester :
 ```
 
 ## 備註
-* AC Cpp Code Only
+* 程式碼皆為 AC 的 C++。
 * `hxy.cpp` 是偷懶版本。沒根據題目要求手刻，直接用 ST L的 library。
 * OJ Compiler 
 
