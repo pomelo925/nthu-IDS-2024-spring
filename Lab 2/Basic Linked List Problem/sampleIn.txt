@@ -1,0 +1,39 @@
+#Sample Input 1:
+
+11
+IT 7
+IH 5
+IT 4
+O
+S 4
+RH
+S 7
+O
+RT
+O
+S 5
+
+#Sample Input 2:
+
+21
+IT 4
+IH 8
+RT
+IT 7
+O
+IT 7
+O
+RT
+RT
+RT
+RT
+O
+IT 6
+IT 3
+S 99
+O
+S 3
+RH
+RH
+O
+S 3

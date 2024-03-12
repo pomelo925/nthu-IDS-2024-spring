@@ -1,0 +1,19 @@
+#Sample Output 1:
+
+5 7 4
+Y
+Y
+7 4
+7
+N
+
+#Sample Output 2:
+
+8 7
+8 7 7
+E
+N
+6 3
+Y
+E
+E
