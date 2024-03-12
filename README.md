@@ -30,6 +30,7 @@ This table outlines the course schedule for the semester :
 └── Lab 3/
     Graph Representation 1/ # Problem Type/Name
     ├── 110033226_lab3_14243.cpp  # AC Code
+    ├── hxy.cpp  # AC Code
     ├── p.png  # problem snapshot
     ├── sampleIn.txt  # sample input data
     └── sampleOut.txt  # sample output data
@@ -42,6 +43,7 @@ This table outlines the course schedule for the semester :
 
 ## 備註
 * AC Cpp Code Only
+* `hxy.cpp` 是偷懶版本。沒根據題目要求手刻，直接用STL的library。
 * OJ Compiler 
 
     ```cpp
