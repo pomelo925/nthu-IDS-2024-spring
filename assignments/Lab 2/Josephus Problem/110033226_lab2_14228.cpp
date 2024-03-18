@@ -1,25 +1,25 @@
-// https://acm.cs.nthu.edu.tw/contest/2956/
+#include <bits/stdc++.h>
 
-#include <iostream>
-#include <queue>
+using namespace std;
 
-int main() {
-    int n;
-    std::cin >> n;
+void josephus(int n){
+  queue<int> q; //FIFO
+  for(int i=1; i<=n; i++) q.push(i);
 
-    std::queue<int> children;
-    for (int i = 1; i <= n; ++i) children.push(i);
+  // 把頭複製到尾，刪去頭，印此時的頭，再刪去。
+  while(!q.empty()){
+    q.push(q.front());
+    q.pop();
+    if(q.size()>1) cout << q.front() << " ";
+    else cout << q.front();
+    q.pop();
+  }
+  return;
+}
 
-    while (!children.empty()) {
-        // Move the first child to the end of the queue.
-        children.push(children.front());
-        children.pop();
-
-        // The next child is removed (every second child).
-        std::cout << children.front();
-        children.pop();
-
-        if (!children.empty()) std::cout << " "; // Print a space after each number except the last on
-    }
-    return 0;
+int main(){
+  int n;
+  cin >> n;
+  josephus(n);
+  return 0;
 }

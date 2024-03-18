@@ -1,0 +1,11 @@
+3 7
+star
+burst
+starburst
+E 1 2
+E 2 3
+E 1 3
+C 1 2
+E 1 2
+E 2 3
+E 1 3

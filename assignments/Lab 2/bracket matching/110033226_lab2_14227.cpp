@@ -1,36 +1,35 @@
 // https://acm.cs.nthu.edu.tw/contest/2956/
-
-#include <iostream>
-#include <stack>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isCorrect(const string& s) {
-    stack<char> st;
+string s;
 
-    for (char c : s) {
-        if (c == '(' || c == '[') st.push(c);
-        else {
-            // If it's a closing bracket and the stack is empty or doesn't match the top, it's incorrect
-            if (st.empty() || (c == ')' && st.top() != '(') || (c == ']' && st.top() != '[')) return false;
-            st.pop();
-        }
+bool correct(const string &s){
+  stack<char> st;
+
+  for(auto c:s){
+    if(c=='[' || c=='(') st.push(c);
+    else{
+      if(st.empty()) return false;
+      if(c==')' && st.top()!='(') return false;
+      if(c==']' && st.top()!='[') return false;
+      st.pop();
     }
-    return st.empty();
+  }
+
+  return st.empty();
 }
 
-int main() {
-    int n;
-    cin >> n;
-    cin.ignore();  // Ignore the newline character after reading n
+int main(){
+  int n;
+  cin >> n;
+  cin.ignore();
 
-    for (int i=0; i<n; i++) {
-        string s;
-        getline(cin, s); // Read the entire line since strings may contain spaces
-        if(i==n-1) cout << (isCorrect(s)? "Y" : "N");
-        else cout << (isCorrect(s)? "Y\n" : "N\n");
-    }
+  while(n--){
+    getline(cin, s);
+    if(n>0) cout << (correct(s)? "Y\n":"N\n");
+    else cout << (correct(s)? "Y":"N");
+  }
 
-    return 0;
+  return 0;
 }
