@@ -43,10 +43,9 @@ This table outlines the course schedule for the semester :
 
 ## 備註
 * 程式碼皆為 AC 的 C++。
-* `hxy.cpp` 是偷懶版本。沒根據題目要求手刻，直接用 ST L的 library。
+* 沒 AC 的在最上方打註解紀錄一下
 * OJ Compiler 
 
     ```cpp
     C++ 17 -O2 -lm -std=c++17 -static -DONLINE_JUDGE
     ```
-* 目前有些 code 是從 [zithroo](https://github.com/zithroo/Data-Structures-NTHU-2022-Summer/tree/main) 抄來的，之後會再自己重寫。
