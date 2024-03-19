@@ -1,4 +1,5 @@
 // https://acm.cs.nthu.edu.tw/contest/2972/
+// 3/6 RE
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -61,7 +62,6 @@ int main(){
   getline(cin, needle);
   getline(cin, haystack);
   
-  cout << numOfSubstring(needle, haystack);
-  cout << "\n";
+  printf("%d\n", numOfSubstring(needle, haystack));
   return 0;
 }
