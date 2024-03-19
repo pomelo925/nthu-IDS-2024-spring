@@ -22,10 +22,10 @@ int main() {
     cin >> s;
 
     vector<int> lps = kmp(s);
-    int n = s.length();
     vector<int> borders;
 
     // 將所有邊界長度添加到一個陣列中
+    int n = s.length();
     for (int len=lps[n-1]; len>0; len=lps[len-1]) borders.push_back(len);
 
     sort(borders.begin(), borders.end());
