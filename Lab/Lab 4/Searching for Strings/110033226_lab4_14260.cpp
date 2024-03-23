@@ -1,67 +1,63 @@
-// https://acm.cs.nthu.edu.tw/contest/2972/
-// 3/6 RE
 #include <bits/stdc++.h>
-
 using namespace std;
 
-typedef unordered_map<char, int> umci;
-typedef unordered_map<string, int> umsi;
+// 定義常數
+constexpr int MOD = 1E9 + 9; // 計算哈希時的模數
+constexpr int A = 998244353; // 基數
+constexpr int N = 2E5 + 5;   // 最大長度限制
 
-umsi sub; // 儲存已配對過的子字串
+int power[N]; // 用於存儲 A 的幂次
 
-// 檢查 needle 和 window 各自元數量是否相等
-bool same(umci &nee, umci &window, string s){
-  for(auto &n:nee){
-    auto it = window.find(n.first);
-    if(it == window.end() || it->second != n.second) return false;
-  }
+int main() {
+    // 初始化 A 的幂次，用於後續的哈希計算
+    power[0] = 1;
+    for(int i=1; i<N; i++) power[i] = 1LL * power[i - 1] * A % MOD;
 
-  for(auto &w:window){
-    auto it = nee.find(w.first);
-    if(it == nee.end() || it->second != w.second) return false;
-  }
+    // 讀入字符串 s 和 t
+    string s, t;
+    cin >> s >> t;
+    int n=(int)s.size(), m=(int) t.size();
 
-// 檢查此子字串是否已出現過
-  if(sub.count(s)) return false;
-  sub[s]++;
-  return true;  
-}
+    // 計算字符串 s 中每個字符的出現次數
+    array<int, 26> cnt = {};
+    for(char c:s) cnt[c-'a']++;
 
+    // 預處理字符串 t 的哈希值
+    vector<int> hsh(m);
+    hsh[0] = t[0];
+    for(int i=1; i<m; i++) hsh[i] = (1LL * hsh[i - 1] * A + t[i]) % MOD;
 
-int numOfSubstring(const string &needle, const string &haystack){
-  int ans=0;
-  const int n=needle.size(), m=haystack.size();
+    // 定義一個 lambda 函數，用於計算子字符串的哈希值
+    auto get = [&](int i, int j) -> int {
+        if(i == 0) return hsh[j];
+        return ((hsh[j] - 1LL * hsh[i - 1] * power[j - i + 1]) % MOD + MOD) % MOD;
+    };  
 
-  umci nee, window;
+    // 用於儲存匹配成功的子字符串的哈希值
+    vector<int> matched;
+    vector<array<int, 26>> pref(m + 1);
+    for(int i = 0; i < m; i++) {
+        pref[i + 1] = pref[i];
+        pref[i + 1][t[i] - 'a']++;
+        // 當達到 s 的長度時，開始檢查是否匹配
+        if(i >= n - 1) {
+            array<int, 26> diff = {};
+            for(int j = 0; j < 26; j++) diff[j] = pref[i + 1][j] - pref[i + 1 - n][j];
+            if(cnt == diff) matched.push_back(get(i - n + 1, i));
+        }
+    }
 
-// 初始化 nee 和 window
-  for(auto c:needle) nee[c]++;
-  for(int i=0; i<n; i++) window[haystack[i]]++;
-  
-// 滑動窗口 window slide
-  for(int i=0, j=n-1; j<m; ){
-    if(same(nee, window, haystack.substr(i,n))) ans+=1;
+    // 對匹配的哈希值進行排序
+    sort(matched.begin(), matched.end());
+    int ans = 0;
+    int last = -1;
+    for(auto x : matched) {
+        if(x == last) continue; // 排除重複的哈希值
+        last = x;
+        ans++; // 統計不同的匹配數
+    }
 
-    if(j == m-1) break;
-
-    window[haystack[i++]]--;
-    window[haystack[++j]]++;
-    
-  // 如果字元數量為零則刪除
-    if(window[haystack[i-1]]==0) window.erase(haystack[i-1]);
-  }
-
-  return ans;
-}
-
-int main(){
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-
-  string needle, haystack;
-  getline(cin, needle);
-  getline(cin, haystack);
-  
-  printf("%d\n", numOfSubstring(needle, haystack));
-  return 0;
+    // 輸出結果
+    cout << ans << "\n";
+    return 0;
 }
