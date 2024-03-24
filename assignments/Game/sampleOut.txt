@@ -1,0 +1,14 @@
+# Sample Output 1:
+
+2
+3
+Penguin07 QQ
+5
+
+# Sample Output 2:
+
+1 2
+Penguin07 QQ
+4 5
+Penguin07 QQ
+3 6 7

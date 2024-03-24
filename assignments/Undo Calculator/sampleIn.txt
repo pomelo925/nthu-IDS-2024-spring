@@ -1,0 +1,13 @@
+# Sample 1
+5
++ 10
+- 3
++ 1
+Undo 
+Undo
+
+# Sample 2
+3
+Undo
++ 100
+Undo

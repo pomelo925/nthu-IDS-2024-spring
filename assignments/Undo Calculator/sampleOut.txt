@@ -1,0 +1,5 @@
+# Sample 1
+10
+
+# Sample 2
+0
