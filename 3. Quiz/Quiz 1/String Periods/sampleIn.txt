@@ -1,0 +1,8 @@
+# Sample 1
+abcabca
+
+# Sample 2
+aaaaaaaaaa
+
+# Sample 3
+aabababaaa
