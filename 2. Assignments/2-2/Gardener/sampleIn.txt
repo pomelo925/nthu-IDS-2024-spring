@@ -1,0 +1,9 @@
+# Sample Input 1
+
+5
+*0-34
+
+# Sample Input 2
+
+9 
+++15*9+87

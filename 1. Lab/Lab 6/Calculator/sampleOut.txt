@@ -1,0 +1,7 @@
+# Sample Output 1
+28
+-2
+
+# Sample Output 2
+1
+-1

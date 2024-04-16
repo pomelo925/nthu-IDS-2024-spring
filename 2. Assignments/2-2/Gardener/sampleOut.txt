@@ -1,0 +1,7 @@
+# Sample Output 1
+
+998244341
+
+# Sample Output 2
+
+141

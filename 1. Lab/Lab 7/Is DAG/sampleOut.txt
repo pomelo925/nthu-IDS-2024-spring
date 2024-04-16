@@ -1,0 +1,7 @@
+# Sample Output 1
+
+YES
+
+# Sample Output 2
+
+NO

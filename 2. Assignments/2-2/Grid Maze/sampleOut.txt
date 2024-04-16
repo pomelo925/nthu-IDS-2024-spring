@@ -1,0 +1,6 @@
+# Sample 1
+YES
+9
+
+# Sample 2
+NO
